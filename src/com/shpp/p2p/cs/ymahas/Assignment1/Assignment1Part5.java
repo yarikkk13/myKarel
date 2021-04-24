@@ -50,18 +50,10 @@ public class Assignment1Part5 extends KarelTheRobot {
     private void putLikeAChessMaster() throws Exception {
         while (leftIsClear()) {
             seedingTheOddRow();
-            turnAround();
-            goingBack();
-            turnRight();
-            move();
-            turnRight();
+            goingToTheNextRow();
             seedingTheEvenRow();
             if (leftIsClear()) {
-                turnAround();
-                goingBack();
-                turnRight();
-                move();
-                turnRight();
+                goingToTheNextRow();
             }
         }
         if (leftIsBlocked() && noBeepersPresent()) {
@@ -69,6 +61,14 @@ public class Assignment1Part5 extends KarelTheRobot {
         }
         checkingTheLastRow();
         lastCheck();
+    }
+
+    private void goingToTheNextRow()throws Exception {
+        turnAround();
+        goingBack();
+        turnRight();
+        move();
+        turnRight();
     }
 
     private void lastCheck()throws Exception {
