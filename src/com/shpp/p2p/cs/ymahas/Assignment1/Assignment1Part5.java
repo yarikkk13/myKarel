@@ -63,7 +63,9 @@ public class Assignment1Part5 extends KarelTheRobot {
                 move();
                 turnRight();
             }
-
+        }
+        if (leftIsBlocked()&&noBeepersPresent()){
+            seedingTheOddRow();
         }
     }
 
