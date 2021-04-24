@@ -63,10 +63,15 @@ public class Assignment1Part5 extends KarelTheRobot {
                 move();
                 turnRight();
             }
+            checkingTheLastRow();
         }
         if (leftIsBlocked()&&noBeepersPresent()){
             seedingTheOddRow();
         }
+    }
+
+    private void checkingTheLastRow() {
+
     }
 
 
