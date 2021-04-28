@@ -10,11 +10,18 @@ public class Assignment1Part2 extends KarelTheRobot {
 
     // in this action we put beepers on our column, except the last on
     private void putBeepersInColumn() throws Exception {
-        while (frontIsClear()) {
+        if (frontIsClear()) {
+            while (frontIsClear()) {
+                if (noBeepersPresent()) {
+                    putBeeper();
+                }
+                move();
+            }
+        } else if (frontIsBlocked()) {
             if (noBeepersPresent()) {
                 putBeeper();
             }
-            move();
+            turnAround();
         }
 
     }
@@ -48,7 +55,7 @@ public class Assignment1Part2 extends KarelTheRobot {
     // this is action in which we unite all previous actions and because of what we can build columns
     private void stonemason() throws Exception {
         turnLeft();
-        while (frontIsClear()) {
+        while (frontIsClear()||rightIsClear()) {
             putBeepersAndGoBack();
             goToAnotherColumn();
         }

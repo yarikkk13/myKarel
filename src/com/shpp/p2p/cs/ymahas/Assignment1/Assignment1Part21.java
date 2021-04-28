@@ -2,7 +2,7 @@ package com.shpp.p2p.cs.ymahas.Assignment1;
 
 import com.shpp.karel.KarelTheRobot;
 
-public class Assignment1Part22 extends KarelTheRobot {
+public class Assignment1Part21 extends KarelTheRobot {
     public void run() throws Exception {
         stonemason();
     }
@@ -10,18 +10,11 @@ public class Assignment1Part22 extends KarelTheRobot {
 
     // in this action we put beepers on our column, except the last on
     private void putBeepersInColumn() throws Exception {
-        if (frontIsClear()) {
-            while (frontIsClear()) {
-                if (noBeepersPresent()) {
-                    putBeeper();
-                }
-                move();
-            }
-        } else if (frontIsBlocked()) {
+        while (frontIsClear()) {
             if (noBeepersPresent()) {
                 putBeeper();
             }
-            turnAround();
+            move();
         }
 
     }
@@ -55,7 +48,7 @@ public class Assignment1Part22 extends KarelTheRobot {
     // this is action in which we unite all previous actions and because of what we can build columns
     private void stonemason() throws Exception {
         turnLeft();
-        while (frontIsClear()||rightIsClear()) {
+        while (frontIsClear()) {
             putBeepersAndGoBack();
             goToAnotherColumn();
         }
