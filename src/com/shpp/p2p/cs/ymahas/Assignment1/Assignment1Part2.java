@@ -26,6 +26,14 @@ public class Assignment1Part2 extends KarelTheRobot {
 
     }
 
+    // i called it miner move because in this action Karel checks if it safe to move on
+    private void minerMove() throws Exception {
+        if (frontIsClear()) {
+            move();
+            turnLeft();
+        }
+    }
+
     // in this action we rotate our Karel on 180 degrees
     private void turnAround() throws Exception {
         turnLeft();
@@ -47,15 +55,14 @@ public class Assignment1Part2 extends KarelTheRobot {
             move();
             move();
             move();
-            move();
-            turnLeft();
+            minerMove();
         }
     }
 
     // this is action in which we unite all previous actions and because of what we can build columns
     private void stonemason() throws Exception {
         turnLeft();
-        while (frontIsClear()||rightIsClear()) {
+        while (frontIsClear() || rightIsClear()) {
             putBeepersAndGoBack();
             goToAnotherColumn();
         }
